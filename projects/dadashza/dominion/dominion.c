@@ -753,7 +753,7 @@ int cardEffect(int card, int choice1, int choice2, int choice3, struct gameState
       return 0;
 
     case smithy:
-	return smithyCard(state, handPos);      	
+	return smithyCard(currentPlayer, handPos, state);      	
     case village:
   	return villageCard(state, handPos);   	
     case baron:
@@ -1261,11 +1261,10 @@ int adventurerCard(struct gameState *state){
       return 0;
 }
 
-int smithyCard(struct gameState *state, int handPos){
+int smithyCard( int currentPlayer, int handPos, struct gameState *state  ){
 
 	int i;
-	int currentPlayer = whoseTurn(state);
-	
+		
 //+3 Cards
       for (i = 0; i < 2; i++)
 	{
